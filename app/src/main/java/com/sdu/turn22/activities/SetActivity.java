@@ -21,15 +21,17 @@ public class SetActivity extends AppCompatActivity implements SensorEventListene
     private float[] mGeomagnetic = new float[3];
     private SensorManager sensorManager;
     float azimuth;
+    private Game game;
 
-    Intent intent = getIntent();
-    Game game = (Game) intent.getSerializableExtra("Game");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        Intent intent = getIntent();
+        this.game = (Game) intent.getSerializableExtra("Game");
 
     }
 

@@ -15,6 +15,7 @@ import com.sdu.turn22.model.Game;
 import com.sdu.turn22.model.Player;
 import com.sdu.turn22.model.Turns;
 import com.sdu.turn22.persistence.AppDatabase;
+import com.sdu.turn22.persistence.GameDao;
 import com.sdu.turn22.persistence.PlayerDao;
 import com.sdu.turn22.persistence.TurnDao;
 

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.sdu.turn22.R;
 import com.sdu.turn22.model.Game;
 import com.sdu.turn22.persistence.AppDatabase;
+import com.sdu.turn22.persistence.GameDao;
 import com.sdu.turn22.persistence.PlayerDao;
 import com.sdu.turn22.persistence.TurnDao;
 
@@ -29,8 +30,8 @@ public class ResultActivity extends AppCompatActivity implements SensorEventList
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
     private SensorManager sensorManager;
-    Intent intent = getIntent();
-    Game game = (Game) intent.getSerializableExtra("Game");
+
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,11 @@ public class ResultActivity extends AppCompatActivity implements SensorEventList
         Context context = getApplicationContext();
         TurnDao turnDao = AppDatabase.getAppDb(context).getTurnDao();
         PlayerDao playerDao = AppDatabase.getAppDb(context).getPlayerDao();
+        GameDao gameDao = AppDatabase.getAppDb(context).getGameDao();
+
+
+        Intent intent = getIntent();
+        this.game = (Game) intent.getSerializableExtra("Game");
 
         // write scored points into database
         game.setPoints(calculatePoints());
@@ -56,6 +62,8 @@ public class ResultActivity extends AppCompatActivity implements SensorEventList
         textView2.setText(result_points);
         TextView textView3 = findViewById(R.id.textView_turns);
         textView3.setText(amount_turns_display_text);
+
+        gameDao.insertGame(game);
     }
 
     @Override

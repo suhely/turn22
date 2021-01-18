@@ -25,16 +25,17 @@ public class ReadyActivity extends AppCompatActivity implements SensorEventListe
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
     private SensorManager sensorManager;
-
-    // Get the Intent that started this activity and extract the game
-    Intent intent = getIntent();
-    Game game = (Game) intent.getSerializableExtra("Game");
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ready);
         Context context = getApplicationContext();
+
+        // Get the Intent that started this activity and extract the game
+        Intent intent = getIntent();
+        this.game = (Game) intent.getSerializableExtra("Game");
 
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
@@ -106,7 +107,7 @@ public class ReadyActivity extends AppCompatActivity implements SensorEventListe
     }
 
     public void onStart(View view){
-        Intent intent = new Intent(this, ResultActivity.class);
+        Intent intent = new Intent(this, SetActivity.class);
         intent.putExtra("Game", game);
         startActivity(intent);
 
