@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Turn22</string>
+    <string name="player_name">Player Name</string>
+    <string name="age">Age</string>
+    <string name="amount_turns">Amount of Turns</string>
+    <string name="button_next">Next</string>
+    <string name="north">Stand exactly direction north</string>
+    <string name="readyInfo">As soon as you\'re facing north the screen turns green, then turn yourself around %1$s times</string>
+    <string name="button_start">Start</string>
+    <string name="setInfo">As soon as you are facing north, the screen will change to green and you will be ready to go</string>
+    <string name="button_measure">Measure position</string>
+    <string name="result_text_player">%1$s, you scored</string>
+    <string name="result_text_points">%1$d points</string>
+    <string name="result_text_turns">with %1$s turns</string>
+    <string name="button_home">Home</string>
+</resources>
